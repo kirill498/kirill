@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Клуб Геймер</title>
+<link rel="stylesheet" href="Новый текстовый документ (2).css" />
+</head>
+<body>
+<header>
+  <h1>Компьютерный клуб "Геймер"</h1>
+  <nav>
+    <ul>
+      <li><a href="#about">О клубе</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="about" class="section fade-in">
+  <h2>О клубе</h2>
+  <p>Идеальное место для игр и отдыха с друзьями. Современные компьютеры, уютная атмосфера.</p>
+</section>
+
+<section id="services" class="section slide-up">
+  <h2>Услуги</h2>
+  <ul>
+    <li>Игры на мощных ПК</li>
+    <li>Турниры и мероприятия</li>
+    <li>Обучение новичков</li>
+    <li>Кофе и закуски</li>
+  </ul>
+  <!-- Кнопка для записи -->
+  <div class="btn-container">
+    <a href="#booking" class="btn animated-btn">Записаться</a>
+  </div>
+</section>
+
+<section id="prices" class="section fade-in">
+  <h2>Цены</h2>
+  <table>
+    <tr><th>Услуга</th><th>Цена</th></tr>
+    <tr><td>Час игры</td><td>200 руб.</td></tr>
+    <tr><td>День (8 часов)</td><td>1200 руб.</td></tr>
+  </table>
+</section>
+
+<section id="contacts" class="section slide-up">
+  <h2>Контакты</h2>
+  <p>Адрес: ул. Игровая, 10</p>
+  <p>Телефон: +7 (999) 123-45-67</p>
+  <!-- Кнопка для связи -->
+  <div class="btn-container">
+    <a href="#booking" class="btn animated-btn">Связаться</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2023 Геймерский клуб</p>
+</footer>
+
+<!-- Скрипт для появления элементов при прокрутке -->
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const sliders = document.querySelectorAll('.slide-up');
+
+  const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+  sliders.forEach(slider => {
+    appearOnScroll.observe(slider);
+  });
+</script>
+</body>
+</html>
